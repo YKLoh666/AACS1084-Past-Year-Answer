@@ -29,7 +29,7 @@ Staff stf;
 strcpy(stf.name, "Wong King Hong");
 stf.id = 1234;
 printf("Please enter the salary : ");
-scanf("%f", stf.salary);
+scanf("%f", &stf.salary);
 ```
 
 c)
@@ -55,7 +55,7 @@ struct Company comList[15];
 
 ```c
 for(int i = 0;i < 15;i++) {
-    printf("%s - %d\n", comList[i].name, comList.employee.id);
+    printf("%s - %d\n", comList[i].name, comList[i].employee.id);
 }
 ```
 
@@ -108,11 +108,27 @@ FILE *fCourse = fopen("expCourse.dat", "wb");
 (ii)
 
 ```c
-// not yet done
+studCourse.fees = -1.0;
+for (int i = 0; i < 5; i++) {
+  if (aryCourse[i].fees > studCourse.fees)
+    studCourse = aryCourse[i];
+}
+
+fwrite(&studCourse, sizeof(Course), 1, fCourse);
 ```
 
 b)
-// not yet done
+
+```c
+FILE *fptr = fopen("expCourse.dat", "rb");
+Course mostExpCourse;
+
+while(fread(&mostExpCourse, sizeof(Course), 1, fptr) != 0) {
+	printf("Course Code : %s\n", mostExpCourse.code);
+	printf("Course Title : %s\n, mostExpCourse.title);
+	printf("Course Fees : %.2f\n", mostExpCourse.fees);
+}
+```
 
 ### Question 4
 
