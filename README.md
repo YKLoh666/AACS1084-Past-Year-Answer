@@ -8,6 +8,9 @@ Each past year papers will have one folder, with the naming convention YEAR-MON 
 The folder will consists of a single answer.md file which includes the link to the past year paper and all the answers.
 Any extra code or explanation related to the question will have its own file within the folder.
 
+## Table of Contents
+- [2023-OCT](2023-OCT/answer.md)
+
 ## Contribution method
 
 Still cooking for standardize format.
