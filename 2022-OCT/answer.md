@@ -43,9 +43,7 @@ struct Company {
 };
 ```
 
-d) 
-
-(i)
+d) (i)
 
 ```c
 struct Company comList[15];
@@ -97,9 +95,7 @@ while(fscanf(fptr1, "%d\t", year) != EOF)
 
 ### Question 3
 
-a)
-
-(i)
+a) (i)
 
 ```c
 FILE *fCourse = fopen("expCourse.dat", "wb");
@@ -133,6 +129,7 @@ while(fread(&mostExpCourse, sizeof(Course), 1, fptr) != 0) {
 ### Question 4
 
 a)
+```c
 double getLoanAmount() {
 	double loanAmount;
  	printf(Enter your loan amount : ");
@@ -140,6 +137,7 @@ double getLoanAmount() {
 
    	return loanAmount;
 }
+```
 
 b)
 
