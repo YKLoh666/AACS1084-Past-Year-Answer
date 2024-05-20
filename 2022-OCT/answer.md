@@ -117,26 +117,48 @@ b)
 ### Question 4
 
 a)
-// not yet done
+double getLoanAmount() {
+	double loanAmount;
+ 	printf(Enter your loan amount : ");
+  	scanf("%f", &loanAmount);
+
+   	return loanAmount;
+}
 
 b)
 
 ```c
-float findTotal(float payment[20], int limit) {
-	float total = 0;
-	for (int i = 0; i < 20; i++) {
-		if (payment[i] > limit) total += payment[i];
-	}
-	return total;
+void getCalculateInput(float *rate, int *year) {
+	printf("Enter your loan interest rate : ");
+	scanf("%f", rate);
+	printf("Enter your loan tenure(year) : ");
+	scanf("%d", year);
 }
 ```
 
 c)
-| coupling | cohesion |
-| :------- | :------- |
-| The measure of the strength of the relation between 2 modules | The measure of independence of the module |
-| Data Coupling: Modules share data by passing parameters | Functional Cohesion: The function only perform one task |
-| Common Coupling: Modules share a global structure | Coincidental Cohesion: Statements within the function have no meaningful relationship with each other |
+
+```c
+float calIntAmount(float loanAmount, float rate, int year) {
+	float intAmount;
+	intAmount = loanAmount * rate * year;
+
+	return intAmount;
+}
+```
 
 d)
+```c
+void main() {
+	float loanAmount, rate, intAmount;
+	int year;
 
+	loanAmount = getLoanAmount();
+	getCalculateInput(&rate, &year);
+	intAmount = calIntAmount(loanAmount, rate, year);
+
+	printf("\nInterest amount is RM%.2f\n", intAmount);
+
+	system("pause");
+}
+```
