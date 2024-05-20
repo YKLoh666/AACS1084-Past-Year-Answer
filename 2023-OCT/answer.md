@@ -4,10 +4,10 @@
 
 [Link to the paper](https://eprints.tarc.edu.my/26826/1/AACS1084.pdf)
 
-- [Question 1](#Question-1)
-- [Question 2](#Question-2)
-- [Question 3](#Question-3)
-- [Question 4](#Question-4)
+- [Question 1](#question-1)
+- [Question 2](#question-2)
+- [Question 3](#question-3)
+- [Question 4](#question-4)
 
 ## Answers
 
@@ -125,21 +125,19 @@ a)
 - Each line in text file end with newline (\n) character, meanwhile there is no lines in binary file.
 - Text file written using a text stream, binary file written using a binary stream.
 
-b)
-
-i)
+b) i)
 
 ```c
 FILE *ptrStudent;
 ```
 
-ii)
+b) ii)
 
 ```c
 ptrStudent = fopen("student.bin", "wb");
 ```
 
-iii)
+b) iii)
 
 ```c
 fwrite(name, sizeof(char), strlen(name), ptrStudent);
@@ -147,7 +145,7 @@ fwrite(&gender, sizeof(char), 1, ptrStudent);
 fwrite(&age, sizeof(int), 1, ptrStudent);
 ```
 
-iv)
+b) iv)
 
 ```c
 fclose(ptrStudent);
