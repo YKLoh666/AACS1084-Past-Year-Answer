@@ -43,13 +43,15 @@ struct Company {
 };
 ```
 
-d) (i)
+d) 
+
+(i)
 
 ```c
 struct Company comList[15];
 ```
 
-d) (ii)
+(ii)
 
 ```c
 for(int i = 0;i < 15;i++) {
@@ -81,61 +83,41 @@ c)
 
 ```c
 int year;
-float average;
-// not yet done
+float month[3], average = 0;
+
+while(fscanf(fptr1, "%d\t", year) != EOF)
+{
+	for(int i = 0; i < 3;i++){
+		fscanf(fptr1, "%f\t", month[i]);
+		average += month[i];
+	}
+	fprintf(fptr2, "%d\t%f\n", year, average);
+}
 ```
 
 ### Question 3
 
 a)
 
-- Text file stores human-readable characters, meanwhile binary file stores binary values which are not human-readable.
-- Each line in text file end with newline (\n) character, meanwhile there is no lines in binary file.
-- Text file written using a text stream, binary file written using a binary stream.
+(i)
+
+```c
+FILE *fCourse = fopen("expCourse.dat", "wb");
+```
+
+(ii)
+
+```c
+// not yet done
+```
 
 b)
-
-i)
-
-```c
-FILE *ptrStudent;
-```
-
-ii)
-
-```c
-ptrStudent = fopen("student.bin", "wb");
-```
-
-iii)
-
-```c
-fwrite(name, sizeof(char), strlen(name), ptrStudent);
-fwrite(&gender, sizeof(char), 1, ptrStudent);
-fwrite(&age, sizeof(int), 1, ptrStudent);
-```
-
-iv)
-
-```c
-fclose(ptrStudent);
-```
-
-c)
-
-```c
-void computePerimeter(int length, int *perimeter) {
-	*perimeter = length * 4;
-}
-```
+// not yet done
 
 ### Question 4
 
 a)
-| static | auto |
-| :----- | :--- |
-| Variable allocated and initialised once at compile time | Variable stored on runtime stack |
-| Persistent until program terminated instead of function terminated | Destroyed upon function terminated|
+// not yet done
 
 b)
 
@@ -155,3 +137,6 @@ c)
 | The measure of the strength of the relation between 2 modules | The measure of independence of the module |
 | Data Coupling: Modules share data by passing parameters | Functional Cohesion: The function only perform one task |
 | Common Coupling: Modules share a global structure | Coincidental Cohesion: Statements within the function have no meaningful relationship with each other |
+
+d)
+
