@@ -2,10 +2,10 @@
 
 [Link to the paper](https://eprints.tarc.edu.my/23317/1/AACS1084.pdf)
 
-- [Question 1](#Question-1)
-- [Question 2](#Question-2)
-- [Question 3](#Question-3)
-- [Question 4](#Question-4)
+- [Question 1](#question-1)
+- [Question 2](#question-2)
+- [Question 3](#question-3)
+- [Question 4](#question-4)
 
 ## Answers
 
