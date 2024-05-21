@@ -1,4 +1,4 @@
-# AACS1084 October 2023 Answers
+# AACS1084 October 2022 Answers
 
 [Link to the paper](https://eprints.tarc.edu.my/23317/1/AACS1084.pdf)
 
@@ -81,14 +81,16 @@ c)
 
 ```c
 int year;
-float month[3], average = 0;
+float month[3], average;
 
-while(fscanf(fptr1, "%d\t", year) != EOF)
+while(fscanf(fptr1, "%d\t", &year) != EOF)
 {
+	average = 0;
 	for(int i = 0; i < 3;i++){
-		fscanf(fptr1, "%f\t", month[i]);
+		fscanf(fptr1, "%f\t", &month[i]);
 		average += month[i];
 	}
+	average /= 3;
 	fprintf(fptr2, "%d\t%f\n", year, average);
 }
 ```
@@ -104,13 +106,13 @@ FILE *fCourse = fopen("expCourse.dat", "wb");
 (ii)
 
 ```c
-studCourse.fees = -1.0;
-for (int i = 0; i < 5; i++) {
-  if (aryCourse[i].fees > studCourse.fees)
-    studCourse = aryCourse[i];
+int index = 0;
+for (int i = 1; i < 5; i++) {
+  // if current course's fees more than the recorded greatest fee
+  if (aryCourse[i].fees > aryCourse[index].fees) index = i;
 }
 
-fwrite(&studCourse, sizeof(Course), 1, fCourse);
+fwrite(&aryCourse[index], sizeof(Course), 1, fCourse);
 ```
 
 b)
@@ -121,7 +123,7 @@ Course mostExpCourse;
 
 while(fread(&mostExpCourse, sizeof(Course), 1, fptr) != 0) {
 	printf("Course Code : %s\n", mostExpCourse.code);
-	printf("Course Title : %s\n, mostExpCourse.title);
+	printf("Course Title : %s\n", mostExpCourse.title);
 	printf("Course Fees : %.2f\n", mostExpCourse.fees);
 }
 ```
@@ -132,8 +134,8 @@ a)
 ```c
 double getLoanAmount() {
 	double loanAmount;
- 	printf(Enter your loan amount : ");
-  	scanf("%f", &loanAmount);
+ 	printf("Enter your loan amount : ");
+  	scanf("%lf", &loanAmount);
 
    	return loanAmount;
 }
@@ -142,7 +144,7 @@ double getLoanAmount() {
 b)
 
 ```c
-void getCalculateInput(float *rate, int *year) {
+void getCalculateInput(double *rate, int *year) {
 	printf("Enter your loan interest rate : ");
 	scanf("%f", rate);
 	printf("Enter your loan tenure(year) : ");
@@ -153,8 +155,8 @@ void getCalculateInput(float *rate, int *year) {
 c)
 
 ```c
-float calIntAmount(float loanAmount, float rate, int year) {
-	float intAmount;
+float calIntAmount(double loanAmount, double rate, int year) {
+	double intAmount;
 	intAmount = loanAmount * rate * year;
 
 	return intAmount;
@@ -164,7 +166,7 @@ float calIntAmount(float loanAmount, float rate, int year) {
 d)
 ```c
 void main() {
-	float loanAmount, rate, intAmount;
+	double loanAmount, rate, intAmount;
 	int year;
 
 	loanAmount = getLoanAmount();
