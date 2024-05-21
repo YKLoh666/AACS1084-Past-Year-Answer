@@ -17,7 +17,7 @@ a)
 typedef struct {
     char name[35];
     char telNo[12];
-}Customer;
+} Customer;
 ```
 
 b)
@@ -53,7 +53,6 @@ printf("Tel No: %s\n", reserve.customer.telNo);
 printf("Arrival Date: %d-%d-%d\n", reserve.arrival.day, reserve.arrival.month, reserve.arrival.year);
 printf("Arrival Time: %d:%d\n", reserve.arrival.hour, reserve.arrival.minutes);
 printf("Total Pax: %d", reserve.totalPax);
-}
 ```
 
 f) (i)
@@ -95,9 +94,9 @@ c)
 char id[6], name[35];
 int assMark, testMark, cwMark, repeat = 0;
 fprintf(fpW, "ID\tName\n--\t-----\n");
-while(fscanf(fpR, "%[^|]|%[^|]|%d|%d\n", id, name, &assMark, &testMark) != EOF) {
+while (fscanf(fpR, "%[^|]|%[^|]|%d|%d\n", id, name, &assMark, &testMark) != EOF) {
 	cwMark = assMark + testMark;
-	if(cwMark < 50) {
+	if (cwMark < 50) {
 		fprintf(fpW, "%s\t%s\n", id, name);
 		repeat++;
 	}
@@ -122,12 +121,12 @@ a)
 ```c
 FILE *fptr = fopen("movies.bin", "ab");
 
-if(fptr = NULL) {
+if (fptr == NULL) {
  	printf("Can't open the file.\n");
 	exit(-1);
 }
 
-fwrite(&name, sizeof(name), 1, fptr);
+fwrite(&name, sizeof(char), strlen(name), fptr);
 fwrite(&releaseYear, sizeof(int), 1, fptr);
 fwrite(&rating, sizeof(double), 1, fptr);
 
@@ -172,10 +171,7 @@ b)
 
 ```c
 double calCommission(double totalSale) {
-	double commission;
-	commission = totalSale * 0.2;
-
-	return commission;
+	return totalSale * 0.2;
 }
 ```
 
@@ -183,9 +179,9 @@ double calCommission(double totalSale) {
 
 ```c
 void getBonus(double totalSale, double *bonus) {
-	if(totalSale < 5000)
+	if (totalSale < 5000)
 		*bonus = 0.00;
-	else if(totalSale < 7999)
+	else if (totalSale < 8000)
 		*bonus = 300.00;
 	else
 		*bonus = 500.00;
