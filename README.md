@@ -10,6 +10,7 @@ Any extra code or explanation related to the question will have its own file wit
 
 ## Table of Contents
 - [2023-OCT](2023-OCT/answer.md)
+- [2022-OCT](2022-OCT/answer.md)
 
 ## Contribution method
 

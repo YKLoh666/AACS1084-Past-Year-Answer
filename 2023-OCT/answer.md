@@ -27,7 +27,7 @@ struct Student {
 b)
 
 ```c
-struct Student = {1003, "Tan Lily", 'F', 3.75f};
+struct Student lily = {1003, "Tan Lily", 'F', 3.75f};
 ```
 
 c)
