@@ -80,24 +80,27 @@ reserveArr[49] = reserve;
 a)
 
 ```c
-FILE *fp1, *fp2;
+FILE *fpR, *fpW;
 ```
 
 b)
 
 ```c
-fp1 = fopen("sales.txt", "r");
-
-if (fp1 == NULL) {
-	printf("File opening errors\n");
-	exit(-1);
-}
+fpR = fopen("coursework.txt", "r");
+fpW = fopen("repeat.txt", "w");
 ```
 
 c)
 
 ```c
-fp2 = fopen("saleaverages.txt", "w");
+char id[6], name[35];
+int assMark, testMark, cwMark, repeat = 0;
+while(fscanf(fpR, "%[^|]|%[^|]|,%d,%d\n", id, name, assMark, testMark) != EOF) {
+	cwMark = assMark + testMark;
+	if(cwMark < 50) {
+		fprintf(//notyetdone
+	}
+}
 ```
 
 d)
