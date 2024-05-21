@@ -91,7 +91,7 @@ while(fscanf(fptr1, "%d\t", &year) != EOF)
 		average += month[i];
 	}
 	average /= 3;
-	fprintf(fptr2, "%d\t%f\n", year, average);
+	fprintf(fptr2, "%d\t%.2f\n", year, average);
 }
 ```
 
@@ -146,7 +146,7 @@ b)
 ```c
 void getCalculateInput(double *rate, int *year) {
 	printf("Enter your loan interest rate : ");
-	scanf("%f", rate);
+	scanf("%lf", rate);
 	printf("Enter your loan tenure(year) : ");
 	scanf("%d", year);
 }
@@ -155,7 +155,7 @@ void getCalculateInput(double *rate, int *year) {
 c)
 
 ```c
-float calIntAmount(double loanAmount, double rate, int year) {
+double calIntAmount(double loanAmount, double rate, int year) {
 	double intAmount;
 	intAmount = loanAmount * rate * year;
 
