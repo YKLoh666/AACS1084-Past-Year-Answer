@@ -52,7 +52,7 @@ printf("Customer Name: %s\n", reserve.customer.name);
 printf("Tel No: %s\n", reserve.customer.telNo);
 printf("Arrival Date: %d-%d-%d\n", reserve.arrival.day, reserve.arrival.month, reserve.arrival.year);
 printf("Arrival Time: %d:%d\n", reserve.arrival.hour, reserve.arrival.minutes);
-printf("Total Pax: %d, reserve.totalPax);
+printf("Total Pax: %d", reserve.totalPax);
 }
 ```
 
@@ -203,6 +203,6 @@ void main() {
 	commission = calCommission(totalSale);
 	getBonus(totalSale, &bonus);
 
-	printf("Your commission is %f and your bonus is %f.\n", commission, bonus);
+	printf("Your commission is %.2f and your bonus is %.2f.\n", commission, bonus);
 }
 ```
