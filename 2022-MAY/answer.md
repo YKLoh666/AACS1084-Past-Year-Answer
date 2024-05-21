@@ -137,15 +137,15 @@ b)
 
 i)
 
-Modules share data by passing parameters
+Occurs when modules share data by passing parameters
 
 ii)
 
-Main program controls module actions
+Occurs when main program controls module actions
 
 iii)
 
-Modules share global structures
+Occurs when modules share global structures
 
 c)
 
@@ -159,11 +159,11 @@ c)
 
 a)
 
-1. Minimize program complexity
+1. Manageable code : Problems can be factored into understandable and manageable steps.
 
-2. Increase program readability
+2. Reusable code : Enables the same code to be reused.
 
-3. Simplify program maintenance
+3. To protect data : Make the related data available only if they are needed.  
 
 b)
 
