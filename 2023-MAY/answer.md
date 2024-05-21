@@ -70,7 +70,7 @@ for (int i = 0; i < 250; i++) {
 f)
 
 ```c
-companyProj.projMember[4].cgpa = 2800.0f;
+companyProj.projMember[4].salary = 2800.0f;
 ```
 
 ### Question 2
@@ -187,8 +187,6 @@ void profitEarn(double sellingPrice, double costPrice, double* profit, double* m
 
 c)
 
-| Table 4 |
-|---------|
 | Variable | Storage Class | Scope |
 |----------|---------------|-------|
 | a | extern | 3-26 |
