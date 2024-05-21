@@ -203,6 +203,6 @@ void main() {
 	commission = calCommission(totalSale);
 	getBonus(totalSale, &bonus);
 
-	printf("Your commission is %f and your bonus is %f.\n, commission, bonus);
+	printf("Your commission is %f and your bonus is %f.\n", commission, bonus);
 }
 ```
