@@ -13,63 +13,49 @@
 
 ### Question 1
 
-a)
+a) (i)
 
 ```c
-struct Student {
-    int id;
-    char name[20];
-    char gender;
-    float cgpa;
+struct Date {
+	int month;
+	int day;
+	int year;
 };
 ```
 
-b)
+a) (ii)
 
 ```c
-struct Student lily = {1003, "Tan Lily", 'F', 3.75f};
+struct Date regDate, payDueDate;
 ```
 
-c)
+b) (i)
 
 ```c
 typedef struct {
-    char title[35];
-    int groupNo;
-    struct Student teamMember[250];
-} Project;
-
-Project myProject;
+    char programmeTitle[50];
+    int mqfLevel;
+    double fees;
+} Programme;
 ```
 
-d)
+b) (ii)
 
 ```c
-printf("Project Title > ");
-scanf("%[^\n]", myProject.title);
-printf("Group No. > ");
-scanf("%d", &myProject.groupNo);
+Programme dft;
+strcpy(dft.programmeTitle, "Diploma in Information Technology");
+dft.mqfLevel = 4;
+scanf("%lf", &dft.fees);
 ```
 
-e)
+b) (iii)
 
 ```c
-for (int i = 0; i < 250; i++) {
-	printf("Student ID > ");
-	scanf("%d", &myProject.teamMember[i].id);
-	printf("Student Name > ");
-	scanf("%[^\n]", myProject.teamMember[i].name);
-	printf("Student Gender > ");
-	scanf("%c", &myProject.teamMember[i].gender);
-	printf("Student CGPA > ");
-	scanf("%f", &myProject.teamMember[i].cgpa);
-}
-```
-
-f)
-
-```c
-myProject.teamMember[4].cgpa = 3.80f;
+typedef struct {
+    char studentID[8];
+    char studentName[40];
+    Programme prog;
+} Student;
 ```
 
 ### Question 2
@@ -83,10 +69,9 @@ FILE *fp1, *fp2;
 b)
 
 ```c
-fp1 = fopen("sales.txt", "r");
-
+fp1 = fopen("attendance.txt", "r");
 if (fp1 == NULL) {
-	printf("File opening errors\n");
+	printf("File opening errors");
 	exit(-1);
 }
 ```
@@ -94,20 +79,24 @@ if (fp1 == NULL) {
 c)
 
 ```c
-fp2 = fopen("saleaverages.txt", "w");
+fp2 = fopen("attnAverage.txt", "w");
 ```
 
 d)
 
 ```c
-int week = 0;
-double prod1, prod2, sumProd1 = 0.0, sumProd2 = 0.0;
-while (fscanf(fp1, "%d\t%lf\t%lf\n", &week, &prod1, &prod2) != EOF) {
-	sumProd1 += prod1;
-	sumProd2 += prod2;
+int day, classA, classB;
+double totalA = 0, totalB = 0;
+
+while (fscanf(fp1, "%d\t%d\t%d\n", &day, &classA, &classB) != EOF) {
+	totalA += classA;
+	totalB += classB;
 }
 
-fprintf(fp2, "%f\t%f\n", sumProd1 / week, sumProd2 / week);
+double avgA = totalA / day;
+double avgB = totalB / day;
+
+fprintf(fp2, "%.1f\t%.1f\n", avgA, avgB);
 ```
 
 e)
@@ -120,42 +109,42 @@ fclose(fp2);
 ### Question 3
 
 a)
-
-- Text file stores human-readable characters, meanwhile binary file stores binary values which are not human-readable.
-- Each line in text file end with newline (\n) character, meanwhile there is no lines in binary file.
-- Text file written using a text stream, binary file written using a binary stream.
+- Binary files stores binary values which are not human readable.
+- Binary files does not separate the contents in lines.
+- Binary files are written using binary stream.
 
 b) i)
 
 ```c
-FILE *ptrStudent;
+FILE* ptrMember;
 ```
 
 b) ii)
 
 ```c
-ptrStudent = fopen("student.bin", "wb");
+ptrMember = fopen("member.bin", "wb");
 ```
 
 b) iii)
 
 ```c
-fwrite(name, sizeof(char), strlen(name), ptrStudent);
-fwrite(&gender, sizeof(char), 1, ptrStudent);
-fwrite(&age, sizeof(int), 1, ptrStudent);
-```
-
-b) iv)
-
-```c
-fclose(ptrStudent);
+fwrite(&status, sizeof(char), 1, ptrMember);
+fwrite(customerName, sizeof(char), strlen(customerName), ptrMember);
+fwrite(&memberID, sizeof(int), 1, ptrMember);
 ```
 
 c)
 
+| Pass by Value | Pass by Address |
+| ------------- | --------------- |
+| When a parameter is passed during a function call, a new variable will be allocated and initialized with the value copied from the parameter passed | The parameter's memory address is being passed during a function call, allowing the function to access to the memory of the same variable |
+| Modifying the parameter within the function will not modify the variable that is being passed as a parameter during function call | Modifying the parameter within the function will also modify the variable that is passed as a parameter during function call due to the variables shares a single memory address |
+
+d)
+
 ```c
-void computePerimeter(int length, int *perimeter) {
-	*perimeter = length * 4;
+void myFormula(int B, int C, int* A) {
+	*A = B * C;
 }
 ```
 
@@ -163,19 +152,22 @@ void computePerimeter(int length, int *perimeter) {
 
 a)
 | static | auto |
-| :----- | :--- |
+| ------ | ---- |
 | Variable allocated and initialised once at compile time | Variable stored on runtime stack |
 | Persistent until program terminated instead of function terminated | Destroyed upon function terminated|
 
 b)
 
 ```c
-float findTotal(float payment[20], int limit) {
-	float total = 0;
+float donation(float funds[20], float target) {
+	float totalFunds = 0;
 	for (int i = 0; i < 20; i++) {
-		if (payment[i] > limit) total += payment[i];
+		totalFunds += funds[i];
 	}
-	return total;
+	if (totalFunds > target) return totalFunds;
+	return 0;
+
+	// OR return totalFunds > target ? totalFunds : 0;
 }
 ```
 
