@@ -76,7 +76,6 @@ reserveArr[49] = reserve;
 ```
 
 ### Question 2
-// Not yet done
 a)
 
 ```c
@@ -95,101 +94,115 @@ c)
 ```c
 char id[6], name[35];
 int assMark, testMark, cwMark, repeat = 0;
-while(fscanf(fpR, "%[^|]|%[^|]|,%d,%d\n", id, name, assMark, testMark) != EOF) {
+fprintf(fpW, "ID\tName\n--\t-----\n");
+while(fscanf(fpR, "%[^|]|%[^|]|%d|%d\n", id, name, &assMark, &testMark) != EOF) {
 	cwMark = assMark + testMark;
 	if(cwMark < 50) {
-		fprintf(//notyetdone
+		fprintf(fpW, "%s\t%s\n", id, name);
+		repeat++;
 	}
 }
+fprintf(fpW, "\nTotal Number of Repeat Students: %d\n", repeat);
 ```
 
 d)
 
-```c
-int week = 0;
-double prod1, prod2, sumProd1 = 0.0, sumProd2 = 0.0;
-while (fscanf(fp1, "%d\t%lf\t%lf\n", &week, &prod1, &prod2) != EOF) {
-	sumProd1 += prod1;
-	sumProd2 += prod2;
-}
-
-fprintf(fp2, "%f\t%f\n", sumProd1 / week, sumProd2 / week);
-```
+To keep a record of data permanently in auxiliary/secondary storage devices (e.g. hard disk, CD, DVD, tape)
 
 e)
 
-```c
-fclose(fp1);
-fclose(fp2);
-```
+1. Data are human readable
+
+2. Each line ends with a newline character
 
 ### Question 3
 
 a)
 
-- Text file stores human-readable characters, meanwhile binary file stores binary values which are not human-readable.
-- Each line in text file end with newline (\n) character, meanwhile there is no lines in binary file.
-- Text file written using a text stream, binary file written using a binary stream.
+```c
+FILE *fptr = fopen("movies.bin", "ab");
+
+if(fptr = NULL) {
+ 	printf("Can't open the file.\n");
+	exit(-1);
+}
+
+fwrite(&name, sizeof(name), 1, fptr);
+fwrite(&releaseYear, sizeof(int), 1, fptr);
+fwrite(&rating, sizeof(double), 1, fptr);
+
+fclose(fptr);
+```
 
 b)
 
 i)
 
-```c
-FILE *ptrStudent;
-```
+Modules share data by passing parameters
 
 ii)
 
-```c
-ptrStudent = fopen("student.bin", "wb");
-```
+Main program controls module actions
 
 iii)
 
-```c
-fwrite(name, sizeof(char), strlen(name), ptrStudent);
-fwrite(&gender, sizeof(char), 1, ptrStudent);
-fwrite(&age, sizeof(int), 1, ptrStudent);
-```
-
-iv)
-
-```c
-fclose(ptrStudent);
-```
+Modules share global structures
 
 c)
 
-```c
-void computePerimeter(int length, int *perimeter) {
-	*perimeter = length * 4;
-}
-```
+| Variable | Visibility | Storage Class |
+| :----- | :--- | :--- |
+| a at line 5 | 5 - 7 | auto |
+| b at line 9 | 9 - 14 | extern |
+| c at line 12 | 12 - 14 | static |
 
 ### Question 4
 
 a)
-| static | auto |
-| :----- | :--- |
-| Variable allocated and initialised once at compile time | Variable stored on runtime stack |
-| Persistent until program terminated instead of function terminated | Destroyed upon function terminated|
+
+1. Minimize program complexity
+
+2. Increase program readability
+
+3. Simplify program maintenance
 
 b)
 
+(i)
+
 ```c
-float findTotal(float payment[20], int limit) {
-	float total = 0;
-	for (int i = 0; i < 20; i++) {
-		if (payment[i] > limit) total += payment[i];
-	}
-	return total;
+double calCommission(double totalSale) {
+	double commission;
+	commission = totalSale * 0.2;
+
+	return commission;
 }
 ```
 
-c)
-| coupling | cohesion |
-| :------- | :------- |
-| The measure of the strength of the relation between 2 modules | The measure of independence of the module |
-| Data Coupling: Modules share data by passing parameters | Functional Cohesion: The function only perform one task |
-| Common Coupling: Modules share a global structure | Coincidental Cohesion: Statements within the function have no meaningful relationship with each other |
+(ii)
+
+```c
+void getBonus(double totalSale, double *bonus) {
+	if(totalSale < 5000)
+		*bonus = 0.00;
+	else if(totalSale < 7999)
+		*bonus = 300.00;
+	else
+		*bonus = 500.00;
+}
+```
+
+(iii)
+
+```c
+void main() {
+	double totalSale, commission, bonus;
+
+	printf("Please enter your total sale : ");
+	scanf("%lf", &totalSale);
+	commission = calCommission(totalSale);
+	getBonus(totalSale, &bonus);
+
+	printf("Your commission is %f and your bonus is %f.\n, commission, bonus);
+}
+```
