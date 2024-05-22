@@ -156,8 +156,8 @@ void main() {
 
   rewind(stdin);
 
-  printf("Enter a character : );
-  scanf(" %c", &ch);
+  printf("Enter a character : ");
+  scanf("%c", &ch);
 
   countOccurrence(string, ch, &num);
   printf("The character '%c' occurs %d times in the string '%s'.", ch, num, string);
