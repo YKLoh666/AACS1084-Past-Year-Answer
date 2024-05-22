@@ -1,6 +1,6 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-# AACS1084 October 2021 Answers
+# AACS1084 April 2021 Answers
 
 [Link to the paper](https://eprints.tarc.edu.my/17763/1/AACS1084.pdf)
 
@@ -53,10 +53,10 @@ e)
 
 ```c
 for (int i = 0; i < 2; i++) {
-  printf("%d\n", cd[i].id);
-  printf("%s\n", cd[i].title);
-  printf("%s\n", cd[i].singer.name);
-  printf("%f\n", cd[i].price);
+  printf("ID: %d\n", cd[i].id);
+  printf("Title : %s\n", cd[i].title);
+  printf("Singer : %s\n", cd[i].singer.name);
+  printf("Price : %RM.2f\n\n", cd[i].price);
 }
 system("pause");
 ```
@@ -74,22 +74,20 @@ fptr2 = fopen("replenishment.txt", "w");
 b)
 
 ```c
-if (fptr1 == NULL) {
-  if (fptr2 == NULL) {
+if (fptr1 == NULL || fptr2 == NULL) {
     printf("Error : unable to open the file!");
     exit(-1);
-  }
 }
 ```
 
 c)
 
 ```c
-//char prodID[5];
-//char prodName[30];
-//int prodQty, minStockLvl;
+char prodID[5];
+char prodName[30];
+int prodQty, minStockLvl;
 
-while (fscanf(fptr1, "%[\|]|%[\|]|%[\|]|%[\n]\n", prodID, prodName, &prodQty, &minStockLvl) != EOF) {
+while (fscanf(fptr1, "%[^|]|%[^|]|%[^|]|%[^\n]\n", prodID, prodName, &prodQty, &minStockLvl) != EOF) {
   if (prodQty < minStockLvl)
     fprintf(fptr2, "%s|%s|%d|%d\n", prodID, prodName, prodQty, minStockLvl);
 }
@@ -129,7 +127,7 @@ b)
 ### Question 4
 
 a) (i)
-Functional cohesion. Every function performs exactly one well-defined task. It focuses on a single operation and does it completely.
+Sequential cohesion. The function performs 2 tasks on the same piece of data in order, which firstly converts the data from cm to inches, and secondly, prints the result in the console.
 
 a) (ii)
 External coupling & common coupling. Both modules share global variable (cm).
@@ -137,13 +135,12 @@ External coupling & common coupling. Both modules share global variable (cm).
 b) (i)
 
 ```c
-int countOccurrence(char str[], char ch, int *num) {
+void countOccurrence(char str[], char ch, int *num) {
   *num = 0;
   for (int i = 0; i < strlen(str); i++) {
-    if (str[i] == ch) 
+    if (toupper(str[i]) == toupper(ch)) 
       (*num)++;
   }
-  return *num;
 }
 ```
 
@@ -162,7 +159,7 @@ void main() {
   printf("Enter a character : );
   scanf(" %c", &ch);
 
-  int count = countOccurrence(string, ch, &num);
-  printf("The character '%c' occurs %d times in the string '%s'.", ch, count, string);
+  countOccurrence(string, ch, &num);
+  printf("The character '%c' occurs %d times in the string '%s'.", ch, num, string);
 }
 ```
