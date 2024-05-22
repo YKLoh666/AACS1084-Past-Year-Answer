@@ -130,7 +130,7 @@ a) (i)
 Sequential cohesion. The function performs 2 tasks on the same piece of data in order, which firstly converts the data from cm to inches, and secondly, prints the result in the console.
 
 a) (ii)
-External coupling & common coupling. Both modules share global variable (cm).
+External coupling. Both modules share global variable (cm).
 
 b) (i)
 
