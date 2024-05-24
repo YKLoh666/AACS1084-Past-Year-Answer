@@ -78,7 +78,7 @@ b) (ii)
 
 ```c
 fPtr1 = fopen("guest.txt", "r");
-fPtr2 = fopen("averageWeeklyGuest.txt, "w");
+fPtr2 = fopen("averageWeeklyGuest.txt", "w");
 ```
 
 b) (iii)
@@ -164,7 +164,9 @@ d)
 e) 
 
 (i) Pathological Coupling
+
 (ii) Data Coupling
+
 (iii) Control Coupling
 
 ### Question 4
@@ -191,8 +193,9 @@ void computeAfterDisc(int days, double* afterDisc) {
 	*afterDisc = 0.9 * (days * 70.0);
 }
 ```
+> Not sure if `*afterDisc = 0.9 * computeBeforeDisc(days);` is usable, because this introduces better modularity.
 
-c) (iii)
+b) (iii)
 
 ```c
 int main() {
