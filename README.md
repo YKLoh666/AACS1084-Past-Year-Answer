@@ -15,6 +15,7 @@ Any extra code or explanation related to the question will have its own file wit
 - [2022-MAY](2022-MAY/answer.md)
 - [2021-OCT](2021-OCT/answer.md)
 - [2021-APR](2021-APR/answer.md)
+- [2020-SEP](2020-SEP/answer.md)
 
 ## Contribution method
 
