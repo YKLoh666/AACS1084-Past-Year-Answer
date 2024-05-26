@@ -99,7 +99,7 @@ while (fscanf(fPtr1, "%d\t", &week) != EOF) {
 	double total = 0;
 	int guest;
 	for (int i = 0; i < 5; i++) {
-		if (i != 5) fscanf(fPtr1, "%d\t", &guest);
+		if (i != 4) fscanf(fPtr1, "%d\t", &guest);
 		else fscanf(fPtr1, "%d\n", &guest);
 		
 		total += guest;
