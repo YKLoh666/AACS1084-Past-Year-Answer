@@ -126,9 +126,9 @@ fPtr3 = fopen("cabin.bin", "wb");
 a) (iii)
 
 ```c
-fprintf(&cabinCode, sizeof(int), 1, fPtr3);
-fprintf(&bathroom, sizeof(char), 1, fPtr3);
-fprintf(&rate, sizeof(double), 1, fPtr3);
+fwrite(&cabinCode, sizeof(int), 1, fPtr3);
+fwrite(&bathroom, sizeof(char), 1, fPtr3);
+fwrite(&rate, sizeof(double), 1, fPtr3);
 ```
 
 a) (iv)
