@@ -18,8 +18,7 @@ a) (i)
 Structure is a data structure that allows user to store a group of variables with different data types.
 
 b)
-
-To group several related variables taht is different in data types into one place.
+Structure are commonly used to define records to be stored in a file, where each element in a structure represents a field within a record.
 
 c) (i)
 
@@ -50,7 +49,7 @@ typedef struct {
 c) (iv)
 
 ```c
-Customer custA = {1277, "Mandy", "Herbal Massage", 'N', 188.0};
+Customer custA = {1277, "Mandy", {"Herbal Massage", 'N', 188.0}};
 ```
 
 (c) (v)
@@ -63,10 +62,9 @@ if (custA.code == 1277)
 ### Question 2
 
 a)
-
-Text files store human readable characters.
-Each line in the text file ends with newline(\n) character.
-Text files are easily readable and modifiable.
+- Text files store human readable characters.
+- Each line in the text file ends with newline(\n) character.
+- Text files are easily readable and modifiable using text editor.
 
 b) (i)
 
@@ -137,7 +135,7 @@ double readCost;
 fread(&readCode, sizeof(int), 1, fPtr4);
 fread(&readCost, sizeof(double), 1, fPtr4);
 printf("Product Code : %d\n", readCode);
-printf("Cost Price : %.2f\n", readCost);
+printf("Cost Price : RM%.2f\n", readCost);
 system("pause");
 ```
 
@@ -149,14 +147,18 @@ c)
 
 d) Cohesion is a measure of the independence of a module.
 
-e) (i) Funtional cohesion
-e) (ii) Sequential cohesion
-e) (iii) Communicational cohesion
+e) 
+
+(i) Funtional cohesion
+
+(ii) Sequential cohesion
+
+(iii) Communicational cohesion
 
 ### Question 4
 
 a)
-Modular programming emphasizes separating the functionality of a program into independent, interchangeable module, such that each module contains everything necessary to execute only one aspect of the desired functionality.
+- Modular programming enables us to organize a program into small, independent modules that are separately named and individually invokeable program elements.
 
 b) (i)
 
@@ -198,6 +200,6 @@ double computeSalesAverage(double s1[5]) {
   for (int i = 0; i < 5; i++) {
     total += s1[i];
   }
-  return total;
+  return total / 5;
 }
 ```
