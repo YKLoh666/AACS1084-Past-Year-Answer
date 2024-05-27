@@ -110,7 +110,7 @@ int week;
 while (fscanf(fPtr1, "%d\t", &week) != EOF) {
 	int sum = 0;
 	int temperature = 0;
-	for (int i = 0; i < 7; i++) {
+	for (int i = 1; i <= 7; i++) {
 		if (i != 7) fscanf(fPtr1, "%d\t", &temperature);
 		else fscanf(fPtr1, "%d\n", &temperature);
 
